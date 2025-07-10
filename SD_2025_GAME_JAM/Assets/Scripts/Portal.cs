@@ -12,19 +12,15 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-   
-        string tag = other.gameObject.tag;
-
-        if (tag == "Player01")
+        if (other.CompareTag("Player01"))
         {
             StartCoroutine(TeleportWithFlash(other.gameObject, flashPanelPlayer01));
-            print("Player01 teleported");
+            Debug.Log("Player01 teleported");
         }
-        else if (tag == "Player02")
+        else if (other.CompareTag("Player02"))
         {
             StartCoroutine(TeleportWithFlash(other.gameObject, flashPanelPlayer02));
-            print("Player02 teleported");
+            Debug.Log("Player02 teleported");
         }
     }
 
@@ -32,7 +28,13 @@ public class Portal : MonoBehaviour
     {
         yield return StartCoroutine(Flash(flashPanel, 1f, 0.2f));
 
-        player.transform.position = ExitPosition.transform.position;
+        CharacterController controller = player.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false; 
+            player.transform.position = ExitPosition.transform.position;
+            controller.enabled = true;
+        }
 
         yield return StartCoroutine(Flash(flashPanel, 0f, 0.2f));
     }
