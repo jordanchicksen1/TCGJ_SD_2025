@@ -152,7 +152,7 @@ public class CharacterControls : MonoBehaviour
 
         // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90, 60);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -22, 14);
 
         // Apply the clamped vertical rotation to the player camera
         playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
