@@ -13,7 +13,7 @@ public class CharacterControls : MonoBehaviour
     [SerializeField]
     private int moveSpeed;
     [SerializeField]
-    private int JumpHeight;
+    private float JumpHeight;
     private Controls controls;
     private Vector2 lookInput;
     public Transform playerCamera;
@@ -152,7 +152,7 @@ public class CharacterControls : MonoBehaviour
 
         // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -22, 14);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -20, 30);
 
         // Apply the clamped vertical rotation to the player camera
         playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
