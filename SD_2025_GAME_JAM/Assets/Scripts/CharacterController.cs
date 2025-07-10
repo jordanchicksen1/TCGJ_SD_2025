@@ -32,6 +32,9 @@ public class CharacterControls : MonoBehaviour
     public LayerMask InteractLayer;
 
 
+    //Pickup Items and spells
+    private bool HasFireBall, HasLightning, SuperBoots, hasHotFeet, HasDoubleDamage, HasBoxingGloves, HasBubbles;
+
     [SerializeField]
     private int PlayerIndex;
 
