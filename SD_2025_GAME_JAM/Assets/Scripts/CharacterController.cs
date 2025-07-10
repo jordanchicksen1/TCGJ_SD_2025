@@ -27,7 +27,7 @@ public class CharacterControls : MonoBehaviour
     [SerializeField]
     private int Range;
     public GameObject projectilePrefab;
-
+    public Transform FirePoint;
     //Interaction 
     public LayerMask InteractLayer;
 
@@ -105,7 +105,7 @@ public class CharacterControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Range))
         {
-            GameObject Projectile = Instantiate(projectilePrefab, playerCamera.position, Quaternion.identity);
+            GameObject Projectile = Instantiate(projectilePrefab, FirePoint.position, Quaternion.identity);
             ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
             ProjectileDestination.hitPoint = hit.point;
         }
