@@ -12,6 +12,7 @@ TagManager:
   - BoxingGloves
   - Bomb
   - CocktailMolotove
+  - Flame
   layers:
   - Default
   - TransparentFX
