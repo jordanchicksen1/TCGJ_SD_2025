@@ -148,7 +148,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -187,8 +187,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.71494484
+        time: 1
+        value: 0.6689663
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -232,8 +232,8 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 0.1, y: 1}
-    shadowBias: 0.5
+    textureScale: {x: 1, y: 1}
+    shadowBias: 1
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
