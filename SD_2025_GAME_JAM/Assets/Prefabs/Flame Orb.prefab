@@ -181,6 +181,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flame Orb
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad48114ce2d7053419387e21ff8a527f,
+        type: 3}
+      propertyPath: m_TagString
+      value: FireBAll
+      objectReference: {fileID: 0}
     - target: {fileID: 4541118569615376773, guid: ad48114ce2d7053419387e21ff8a527f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -203,6 +208,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5542079215216408169}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ad48114ce2d7053419387e21ff8a527f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -132395436314289191}
   m_SourcePrefab: {fileID: 100100000, guid: ad48114ce2d7053419387e21ff8a527f, type: 3}
 --- !u!4 &2711120651976665939 stripped
 Transform:
@@ -237,3 +246,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &-132395436314289191
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022852415122085957}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
