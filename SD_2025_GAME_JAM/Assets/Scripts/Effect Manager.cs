@@ -9,6 +9,7 @@ public class EffectManager : MonoBehaviour
 
     [SerializeField] public GameObject freezePanle;
     [SerializeField] public GameObject flashPanle;
+    [SerializeField] public GameObject slimePanle;
 
     private void Start()
     {
@@ -59,7 +60,13 @@ public class EffectManager : MonoBehaviour
 
     public void SlimeSling()
     {
-
+        slimePanle.SetActive(true);
+        StartCoroutine(slimePanel());
+    }
+    IEnumerator slimePanel()
+    {
+        yield return new WaitForSeconds(1);
+        flashPanle.SetActive(false);
     }
 
     public void HotFeet()
