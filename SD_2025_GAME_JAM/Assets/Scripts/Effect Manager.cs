@@ -15,6 +15,10 @@ public class EffectManager : MonoBehaviour
         characterController = GetComponent<CharacterControls>();
     }
 
+    public void Float()
+    {
+        StartCoroutine(Graviole());
+    }
     IEnumerator Graviole()
     {
         yield return new WaitForSeconds(0);
@@ -58,6 +62,20 @@ public class EffectManager : MonoBehaviour
 
     }
 
+    public void HotFeet()
+    {
+        CharacterControls characterControls = GetComponent<CharacterControls>();
+        characterControls.moveSpeed += 7;
+        StartCoroutine(HotFeets());
+    }
+
+    IEnumerator HotFeets()
+    {
+        yield return new WaitForSeconds(5);
+        CharacterControls characterControls = GetComponent<CharacterControls>();
+        characterControls.moveSpeed -= 7;
+    }
+
     public void Burnt()
     {
 
@@ -65,10 +83,7 @@ public class EffectManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider hit)
     {
-        if (hit.CompareTag("Flame"))
-        {
-            StartCoroutine(Graviole());
-        }
+        
     }
 
 

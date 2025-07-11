@@ -112,6 +112,10 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0, z: 0}
   MoveSpeed: 60
   IsSlimeBall: 0
+  isIce: 0
+  isFlashStar: 0
+  isBubble: 0
+  isHotFeet: 1
   Player: {fileID: 0}
   characterController: {fileID: 0}
 --- !u!135 &5338110010907108080

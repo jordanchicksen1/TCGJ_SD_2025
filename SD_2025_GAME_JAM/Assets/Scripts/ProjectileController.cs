@@ -7,7 +7,7 @@ public class ProjectileController : MonoBehaviour
     public Vector3 hitPoint;
     public int MoveSpeed;
     private Vector3 OriginalPosition;
-    public bool IsSlimeBall, isIce, isFlashStar;
+    public bool IsSlimeBall, isIce, isFlashStar, isBubble, isHotFeet;
     public GameObject Player;
     public CharacterController characterController;
 
@@ -52,6 +52,21 @@ public class ProjectileController : MonoBehaviour
                 effectScript.FlashBang();
 
             }
+            else if (isBubble)
+            {
+                Player = other.gameObject;
+                EffectManager effectScript = Player.GetComponent<EffectManager>();
+                effectScript.Float();
+                Destroy(gameObject);
+            }
+            else if (isBubble)
+            {
+                Player = other.gameObject;
+                EffectManager effectScript = Player.GetComponent<EffectManager>();
+                effectScript.HotFeet();
+                Destroy(gameObject);
+            }
+
 
         }
         else  if (other != null)

@@ -11,7 +11,7 @@ public class CharacterControls : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField]
-    private int moveSpeed;
+    public int moveSpeed;
     [SerializeField]
     private float JumpHeight;
     private Controls controls;
