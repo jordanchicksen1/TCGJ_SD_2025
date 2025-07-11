@@ -55,6 +55,7 @@ public class CharacterControls : MonoBehaviour
     public float shakeMagnitude = 0.3f;
     private Vector3 originalPos;
     public GameObject Cloud;
+    public GameObject flamePanel;
 
     private void OnEnable()
     {
@@ -151,6 +152,14 @@ public class CharacterControls : MonoBehaviour
         else if (!HasLightning)
         {
             Cloud.SetActive(false);
+        }
+        if(HasFireBall)
+        {
+            flamePanel.SetActive(true);
+        }
+        else if (!HasFireBall)
+        {
+            flamePanel.SetActive(false);
         }
 
     }
