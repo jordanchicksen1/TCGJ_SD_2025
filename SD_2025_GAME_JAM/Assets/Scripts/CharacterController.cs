@@ -44,13 +44,16 @@ public class CharacterControls : MonoBehaviour
     [SerializeField]
     private bool HasSlimeBall, HasBubbleBall, HasIceBall, HasTeleportSpell, HasFlashStar, HasHotFeet;
     [SerializeField]
-    private List<bool> SupportBools= new List<bool>();
+    private List<bool> SupportBools = new List<bool>();
     public GameObject SlimePrefab, IcePrefab, BubblePrefab, TeleportPrefab, FlashStarPrefab, BootsPrefab;
 
     [SerializeField]
     private int PlayerIndex;
 
-
+    //Effects
+    public float shakeMagnitude = 0.3f;
+    private Vector3 originalPos;
+    [SerializeField] private Transform cameraToShake;
 
     private void OnEnable()
     {
@@ -105,6 +108,9 @@ public class CharacterControls : MonoBehaviour
         AttackBools.Add(HasBubbleBall);
         AttackBools.Add(HasFlashStar);
         AttackBools.Add(HasTeleportSpell);
+
+        //shake screen
+        originalPos = cameraToShake.localPosition;
     }
 
     private void Update()
@@ -128,6 +134,15 @@ public class CharacterControls : MonoBehaviour
         HasBubbleBall = AttackBools[3];
         HasFlashStar = AttackBools[4];
         HasTeleportSpell = AttackBools[5];
+
+        //screen Shake For Boxing Gloves
+        if (HasBoxingloves)
+        {
+            float x = Random.Range(-1f, 1f) * shakeMagnitude;
+            float y = Random.Range(-1f, 1f) * shakeMagnitude;
+
+            cameraToShake.localPosition = originalPos + new Vector3(x, y, 0f);
+        }
     }
 
     private void Awake()
@@ -314,7 +329,11 @@ public class CharacterControls : MonoBehaviour
         }
         else if (other.CompareTag("BoxingGloves"))
         {
-
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[3] = true;
         }
         else if (other.CompareTag("Bomb"))
         {
