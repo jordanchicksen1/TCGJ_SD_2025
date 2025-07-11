@@ -7,6 +7,9 @@ public class EffectManager : MonoBehaviour
 {
    private CharacterControls characterController;
 
+    [SerializeField] public GameObject freezePanle;
+    [SerializeField] public GameObject flashPanle;
+
     private void Start()
     {
         characterController = GetComponent<CharacterControls>();
@@ -23,9 +26,16 @@ public class EffectManager : MonoBehaviour
 
     public void Freeze()
     {
-
+        freezePanle.SetActive(true);
+        StartCoroutine(FreezePanel());
     }
 
+    IEnumerator FreezePanel()
+    {
+        yield return new WaitForSeconds(3);
+        freezePanle.SetActive(false);
+
+    }
     public void Teleport()
     {
 
@@ -33,7 +43,14 @@ public class EffectManager : MonoBehaviour
 
     public void FlashBang()
     {
+        flashPanle.SetActive(true);
 
+        StartCoroutine(flashPanel());
+    }
+    IEnumerator flashPanel()
+    {
+        yield return new WaitForSeconds(5);
+        flashPanle.SetActive(false);
     }
 
     public void SlimeSling()
