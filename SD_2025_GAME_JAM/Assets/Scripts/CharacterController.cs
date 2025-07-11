@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -53,6 +54,7 @@ public class CharacterControls : MonoBehaviour
     //Effects
     public float shakeMagnitude = 0.3f;
     private Vector3 originalPos;
+    public GameObject Cloud;
 
     private void OnEnable()
     {
@@ -69,6 +71,7 @@ public class CharacterControls : MonoBehaviour
             controls.Player.Jump.performed += ctx => Jump();
             controls.Player.Attack.performed += ctx => Attack();
             controls.Player.Support.performed += ctx => Support();
+            controls.Player.Dash.performed += ctx => StartCoroutine(Dash());
 
         }
         else if (PlayerIndex == 2)
@@ -84,6 +87,7 @@ public class CharacterControls : MonoBehaviour
             controls.Player2.Jump.performed += ctx => Jump();
             controls.Player2.Attack.performed += ctx => Attack();
             controls.Player2.Support.performed += ctx => Support();
+            controls.Player2.Dash.performed += ctx => StartCoroutine(Dash());
         }
 
 
@@ -140,6 +144,15 @@ public class CharacterControls : MonoBehaviour
 
             playerCamera.localPosition = originalPos + new Vector3(x, y, 0f);
         }
+        if (HasLightning)
+        {
+            Cloud.SetActive(true);
+        }
+        else if (!HasLightning)
+        {
+            Cloud.SetActive(false);
+        }
+
     }
 
     private void Awake()
@@ -258,6 +271,13 @@ public class CharacterControls : MonoBehaviour
         characterController.Move(move * moveSpeed * Time.deltaTime);
     }
 
+    IEnumerator Dash()
+    {
+        moveSpeed += 10;
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed -= 10;
+    }
+
     public void ApplyGravity()
     {
         if (characterController.isGrounded && velocity.y < 0)
@@ -281,7 +301,7 @@ public class CharacterControls : MonoBehaviour
 
         // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -20, 30);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -50, 40);
 
         // Apply the clamped vertical rotation to the player camera
         playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
