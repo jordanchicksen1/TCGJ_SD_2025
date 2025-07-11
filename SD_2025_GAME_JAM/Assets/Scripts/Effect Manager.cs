@@ -10,6 +10,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] public GameObject freezePanle;
     [SerializeField] public GameObject flashPanle;
     [SerializeField] public GameObject slimePanle;
+    public GameObject Bubble;
 
     private void Start()
     {
@@ -23,9 +24,12 @@ public class EffectManager : MonoBehaviour
     IEnumerator Graviole()
     {
         yield return new WaitForSeconds(0);
+        Bubble.SetActive(true);
         characterController.gravity = characterController.gravity * -1; 
         yield return new WaitForSeconds(3);
         characterController.gravity = characterController.gravity * -1;
+        Bubble.SetActive(false);
+
 
     }
 
