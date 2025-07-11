@@ -67,7 +67,6 @@ public class CharacterControls : MonoBehaviour
             controls.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
             controls.Player.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
 
-            controls.Player.Interact.performed += ctx => Interact();
             controls.Player.Jump.performed += ctx => Jump();
             controls.Player.Attack.performed += ctx => Attack();
             controls.Player.Support.performed += ctx => Support();
@@ -83,10 +82,9 @@ public class CharacterControls : MonoBehaviour
             controls.Player2.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
             controls.Player2.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
 
-            controls.Player2.Interact.performed += ctx => Interact();
             controls.Player2.Jump.performed += ctx => Jump();
             controls.Player2.Attack.performed += ctx => Attack();
-            controls.Player.Support.performed += ctx => Support();
+            controls.Player2.Support.performed += ctx => Support();
         }
 
 
@@ -102,15 +100,15 @@ public class CharacterControls : MonoBehaviour
         AttackBools.Add(HasMoonStick);
 
         //Support Bools
-        AttackBools.Add(HasHotFeet);
-        AttackBools.Add(HasIceBall);
-        AttackBools.Add(HasSlimeBall);
-        AttackBools.Add(HasBubbleBall);
-        AttackBools.Add(HasFlashStar);
-        AttackBools.Add(HasTeleportSpell);
+        SupportBools.Add(HasHotFeet);
+        SupportBools.Add(HasIceBall);
+        SupportBools.Add(HasSlimeBall);
+        SupportBools.Add(HasBubbleBall);
+        SupportBools.Add(HasFlashStar);
+        SupportBools.Add(HasTeleportSpell);
 
         //shake screen
-        originalPos = cameraToShake.localPosition;
+        originalPos = playerCamera.localPosition;
     }
 
     private void Update()
@@ -128,12 +126,12 @@ public class CharacterControls : MonoBehaviour
 
 
         //Support Bools
-        HasHotFeet = AttackBools[0];
-        HasIceBall = AttackBools[1];
-        HasSlimeBall = AttackBools[2];
-        HasBubbleBall = AttackBools[3];
-        HasFlashStar = AttackBools[4];
-        HasTeleportSpell = AttackBools[5];
+        HasHotFeet = SupportBools[0];
+        HasIceBall = SupportBools[1];
+        HasSlimeBall = SupportBools[2];
+        HasBubbleBall = SupportBools[3];
+        HasFlashStar = SupportBools[4];
+        HasTeleportSpell = SupportBools[5];
 
         //screen Shake For Boxing Gloves
         if (HasBoxingloves)
@@ -148,17 +146,6 @@ public class CharacterControls : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-    }
-
-    void Interact()
-    {
-        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-        RaycastHit hit;
-
-
-        /*if (Physics.Raycast(ray, out hit, PickupRange, InteractLayer))
-        {
-        }*/
     }
 
     void Attack()
@@ -337,14 +324,71 @@ public class CharacterControls : MonoBehaviour
         }
         else if (other.CompareTag("Bomb"))
         {
-
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[0] = true;
         }
         else if (other.CompareTag("CocktailMolotove"))
         {
-
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[1] = true;
         }
-       
 
+
+        //Support Spells
+        else if (other.CompareTag("Ice"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[1] = true;
+        }
+        else if (other.CompareTag("Slime"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[2] = true;
+        }
+        else if (other.CompareTag("Boots"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[0] = true;
+        }
+        else if (other.CompareTag("FlashStar"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[4] = true;
+        }
+        else if (other.CompareTag("teleport"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[5] = true;
+        }
+        else if (other.CompareTag("Bubble"))
+        {
+            for (int i = 0; i < SupportBools.Count; i++)
+            {
+                SupportBools[i] = false;
+            }
+            SupportBools[3] = true;
+        }
 
     }
 }

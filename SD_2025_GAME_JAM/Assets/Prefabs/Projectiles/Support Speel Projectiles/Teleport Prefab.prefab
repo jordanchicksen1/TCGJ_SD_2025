@@ -67,11 +67,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 508ecb49cace9d941bef7e7a36c6cd92, type: 2}
+      objectReference: {fileID: 2100000, guid: 0ca591134ff75984fa3252b89cf06ab5, type: 2}
     - target: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       propertyPath: m_Name
-      value: Projectiles 5
+      value: Teleport Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -105,7 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
-  MoveSpeed: 40
+  MoveSpeed: 60
+  IsSlimeBall: 0
+  Player: {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!135 &6803891442234033705
 SphereCollider:
   m_ObjectHideFlags: 0

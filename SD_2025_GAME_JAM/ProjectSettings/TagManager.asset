@@ -13,6 +13,21 @@ TagManager:
   - Bomb
   - CocktailMolotove
   - Flame
+  - Bubble
+  - Slime
+  - Ice
+  - Molotove
+  - Boots
+  - FlashStar
+  - Zap
+  - Float
+  - Burn
+  - Freeze
+  - Flash
+  - HotFeet
+  - Stick
+  - Load
+  - teleport
   layers:
   - Default
   - TransparentFX

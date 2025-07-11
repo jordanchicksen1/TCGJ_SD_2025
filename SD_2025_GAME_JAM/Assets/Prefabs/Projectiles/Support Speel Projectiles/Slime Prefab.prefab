@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 8.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
@@ -67,16 +67,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 508ecb49cace9d941bef7e7a36c6cd92, type: 2}
+      objectReference: {fileID: 2100000, guid: bd0fbacc75dd7474b8b93abd964cb3d5, type: 2}
     - target: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       propertyPath: m_Name
-      value: Flame Projectile
+      value: Slime Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       propertyPath: m_TagString
-      value: Flame
+      value: Stick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -93,7 +93,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3397934327248183210}
+      addedObject: {fileID: 702577623167040214}
   m_SourcePrefab: {fileID: 100100000, guid: cd1bc4b1d475ce448b8a738504a08bf0, type: 3}
 --- !u!1 &5307139069202583747 stripped
 GameObject:
@@ -114,7 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
-  MoveSpeed: 40
+  MoveSpeed: 60
+  IsSlimeBall: 1
+  Player: {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!135 &5287111466344364474
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -136,7 +139,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.29999998
   m_Center: {x: -0.00000010430813, y: 0.000000104308114, z: 0}
---- !u!96 &-3397934327248183210
+--- !u!96 &702577623167040214
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -148,7 +151,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -157,7 +160,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff44f7bc482f64e44b1935ed4d9de35c, type: 2}
+  - {fileID: 2100000, guid: bd0fbacc75dd7474b8b93abd964cb3d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,7 +181,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.1
+  m_Time: 0.3
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -187,30 +190,39 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 1
-        value: 0.6689663
+        time: 0
+        value: 0.46474886
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.046043277
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8792453, g: 0.52547026, b: 0.1642363, a: 1}
+      key0: {r: 0, g: 1, b: 0.11045551, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0.9955567, g: 0.98253924, b: 0.9692473, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 33230
+      ctime0: 21819
       ctime1: 65535
-      ctime2: 50655
+      ctime2: 0
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -233,7 +245,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
-    shadowBias: 1
+    shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0

@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       propertyPath: m_Name
-      value: Projectiles 4
+      value: Projectiles 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -84,7 +84,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5713549776774955235}
+      addedObject: {fileID: 6628478288477136682}
   m_SourcePrefab: {fileID: 100100000, guid: cd1bc4b1d475ce448b8a738504a08bf0, type: 3}
 --- !u!1 &5307139069202583747 stripped
 GameObject:
@@ -105,8 +105,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
-  MoveSpeed: 40
---- !u!135 &-5713549776774955235
+  MoveSpeed: 60
+  IsSlimeBall: 0
+  Player: {fileID: 0}
+  characterController: {fileID: 0}
+--- !u!135 &6628478288477136682
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

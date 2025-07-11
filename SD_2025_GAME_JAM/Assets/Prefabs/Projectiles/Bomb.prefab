@@ -105,7 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
-  MoveSpeed: 40
+  MoveSpeed: 60
+  IsSlimeBall: 0
+  Player: {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!135 &6803891442234033705
 SphereCollider:
   m_ObjectHideFlags: 0
