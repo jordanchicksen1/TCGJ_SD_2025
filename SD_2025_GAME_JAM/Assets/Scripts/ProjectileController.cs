@@ -45,6 +45,8 @@ public class ProjectileController : MonoBehaviour
             if (IsSlimeBall)
             {
                 Player = other.gameObject;
+                EffectManager effectscript = Player.GetComponent<EffectManager>();
+                effectscript.SlimeSling();
                 StartCoroutine(Pull());
             }
             else if (isIce)

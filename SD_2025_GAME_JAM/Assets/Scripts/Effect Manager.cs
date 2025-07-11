@@ -65,8 +65,8 @@ public class EffectManager : MonoBehaviour
     }
     IEnumerator slimePanel()
     {
-        yield return new WaitForSeconds(1);
-        flashPanle.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        slimePanle.SetActive(false);
     }
 
     public void HotFeet()
