@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -7,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     public Vector3 hitPoint;
     public int MoveSpeed;
     private Vector3 OriginalPosition;
-    public bool IsSlimeBall, isIce, isFlashStar, isBubble, isHotFeet;
+    public bool IsSlimeBall, isIce, isFlashStar, isBubble, isHotFeet, isTeleport;
     public GameObject Player;
     public CharacterController characterController;
 
@@ -23,6 +24,17 @@ public class ProjectileController : MonoBehaviour
             characterController = Player.GetComponent<CharacterController>();
             characterController.enabled = false;
             Player.transform.position = Vector3.MoveTowards(Player.transform.position, OriginalPosition, 10 * Time.deltaTime);
+        }
+
+        float distance = Vector3.Distance(transform.position, hitPoint);
+
+        if (distance <=2 && isTeleport)
+        {
+            CharacterController characterController = Player.GetComponent< CharacterController>();
+            characterController.enabled = false;
+            Player.transform.position = transform.position;
+            characterController.enabled = true;
+            Destroy(gameObject);
         }
     }
 
@@ -66,6 +78,7 @@ public class ProjectileController : MonoBehaviour
                 effectScript.HotFeet();
                 Destroy(gameObject);
             }
+            
 
 
         }

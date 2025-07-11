@@ -53,7 +53,6 @@ public class CharacterControls : MonoBehaviour
     //Effects
     public float shakeMagnitude = 0.3f;
     private Vector3 originalPos;
-    [SerializeField] private Transform cameraToShake;
 
     private void OnEnable()
     {
@@ -139,7 +138,7 @@ public class CharacterControls : MonoBehaviour
             float x = Random.Range(-1f, 1f) * shakeMagnitude;
             float y = Random.Range(-1f, 1f) * shakeMagnitude;
 
-            cameraToShake.localPosition = originalPos + new Vector3(x, y, 0f);
+            playerCamera.localPosition = originalPos + new Vector3(x, y, 0f);
         }
     }
 
@@ -216,6 +215,8 @@ public class CharacterControls : MonoBehaviour
                 GameObject Projectile = Instantiate(TeleportPrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+                ProjectileDestination.Player = gameObject;
+
             }
             else if (HasHotFeet)
             {
@@ -235,6 +236,7 @@ public class CharacterControls : MonoBehaviour
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
             }
+            
         }
     }
 
