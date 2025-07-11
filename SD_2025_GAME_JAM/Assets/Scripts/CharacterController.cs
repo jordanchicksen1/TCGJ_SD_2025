@@ -32,17 +32,22 @@ public class CharacterControls : MonoBehaviour
     public LayerMask InteractLayer;
 
 
-    //Pickup Items and spells
-    private bool HasFireBall, HasLightning, SuperBoots, hasHotFeet, HasDoubleDamage, HasBoxingGloves, HasBubbles;
+    //Attack Spells
+    [SerializeField]
+    private bool HasFireBall, HasLightning, HasMoonStick, HasBomb, HasCocktailMolotove, HasBoxingloves;
+    [SerializeField]
+    private List<bool> AttackBools = new List<bool>();
+    public GameObject FireBallPrefab, LightningPrefab, BombPrefab, MoonStickPrefab, BoxingGlovesPrefab, CocktailMolotovePrefab;
+
 
     [SerializeField]
     private int PlayerIndex;
 
-    
+
 
     private void OnEnable()
     {
-        if(PlayerIndex == 1)
+        if (PlayerIndex == 1)
         {
             controls = new Controls();
             controls.Player.Enable();
@@ -75,11 +80,29 @@ public class CharacterControls : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        AttackBools.Add(HasBomb);
+        AttackBools.Add(HasCocktailMolotove);
+        AttackBools.Add(HasFireBall);
+        AttackBools.Add(HasBoxingloves);
+        AttackBools.Add(HasLightning);
+        AttackBools.Add(HasMoonStick);
+
+    }
+
     private void Update()
     {
         ApplyGravity();
         Move();
         LookAround();
+
+        HasBomb = AttackBools[0];
+        HasCocktailMolotove = AttackBools[1];
+        HasFireBall = AttackBools[2];
+        HasBoxingloves = AttackBools[3];
+        HasLightning = AttackBools[4];
+        HasMoonStick = AttackBools[5];
     }
 
     private void Awake()
@@ -102,15 +125,49 @@ public class CharacterControls : MonoBehaviour
     {
         Ray ray = new Ray(playerCamera.position, playerCamera.forward);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit, Range))
         {
-            GameObject Projectile = Instantiate(projectilePrefab, FirePoint.position, Quaternion.identity);
-            ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
-            ProjectileDestination.hitPoint = hit.point;
+            if (HasFireBall)
+            {
+                GameObject Projectile = Instantiate(FireBallPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasLightning)
+            {
+                GameObject Projectile = Instantiate(LightningPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasMoonStick)
+            {
+                GameObject Projectile = Instantiate(MoonStickPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasCocktailMolotove)
+            {
+                GameObject Projectile = Instantiate(CocktailMolotovePrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasBomb)
+            {
+                GameObject Projectile = Instantiate(BombPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasBoxingloves)
+            {
+                GameObject Projectile = Instantiate(BoxingGlovesPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
         }
+
+
     }
-    
+
     void Jump()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
@@ -158,4 +215,49 @@ public class CharacterControls : MonoBehaviour
         playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("FireBAll"))
+        {
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[2] = true;
+        }
+        else if (other.CompareTag("Lightning"))
+        {
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[4] = true;
+
+        }
+        else if (other.CompareTag("MoonStick"))
+        {
+            for (int i = 0; i < AttackBools.Count; i++)
+            {
+                AttackBools[i] = false;
+            }
+            AttackBools[5] = true;
+
+        }
+        else if (other.CompareTag("BoxingGloves"))
+        {
+
+        }
+        else if (other.CompareTag("Bomb"))
+        {
+
+        }
+        else if (other.CompareTag("CocktailMolotove"))
+        {
+
+        }
+       
+
+
+    }
 }
