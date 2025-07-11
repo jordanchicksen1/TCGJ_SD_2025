@@ -20,7 +20,7 @@ public class CharacterControls : MonoBehaviour
     public Vector2 moveInput;
     private CharacterController characterController;
     private Vector3 velocity;
-    private float gravity = -9.8f;
+    public float gravity = -9.8f;
     [SerializeField]
     private float lookSpeed;
     private float verticalLookRotation = 0f;
