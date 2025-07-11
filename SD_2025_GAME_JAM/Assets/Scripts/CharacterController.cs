@@ -40,6 +40,13 @@ public class CharacterControls : MonoBehaviour
     public GameObject FireBallPrefab, LightningPrefab, BombPrefab, MoonStickPrefab, BoxingGlovesPrefab, CocktailMolotovePrefab;
 
 
+    //Support Spells
+    [SerializeField]
+    private bool HasSlimeBall, HasBubbleBall, HasIceBall, HasTeleportSpell, HasFlashStar, HasHotFeet;
+    [SerializeField]
+    private List<bool> SupportBools= new List<bool>();
+    public GameObject SlimePrefab, IcePrefab, BubblePrefab, TeleportPrefab, FlashStarPrefab, BootsPrefab;
+
     [SerializeField]
     private int PlayerIndex;
 
@@ -60,6 +67,7 @@ public class CharacterControls : MonoBehaviour
             controls.Player.Interact.performed += ctx => Interact();
             controls.Player.Jump.performed += ctx => Jump();
             controls.Player.Attack.performed += ctx => Attack();
+            controls.Player.Support.performed += ctx => Support();
 
         }
         else if (PlayerIndex == 2)
@@ -75,6 +83,7 @@ public class CharacterControls : MonoBehaviour
             controls.Player2.Interact.performed += ctx => Interact();
             controls.Player2.Jump.performed += ctx => Jump();
             controls.Player2.Attack.performed += ctx => Attack();
+            controls.Player.Support.performed += ctx => Support();
         }
 
 
@@ -89,6 +98,13 @@ public class CharacterControls : MonoBehaviour
         AttackBools.Add(HasLightning);
         AttackBools.Add(HasMoonStick);
 
+        //Support Bools
+        AttackBools.Add(HasHotFeet);
+        AttackBools.Add(HasIceBall);
+        AttackBools.Add(HasSlimeBall);
+        AttackBools.Add(HasBubbleBall);
+        AttackBools.Add(HasFlashStar);
+        AttackBools.Add(HasTeleportSpell);
     }
 
     private void Update()
@@ -103,6 +119,15 @@ public class CharacterControls : MonoBehaviour
         HasBoxingloves = AttackBools[3];
         HasLightning = AttackBools[4];
         HasMoonStick = AttackBools[5];
+
+
+        //Support Bools
+        HasHotFeet = AttackBools[0];
+        HasIceBall = AttackBools[1];
+        HasSlimeBall = AttackBools[2];
+        HasBubbleBall = AttackBools[3];
+        HasFlashStar = AttackBools[4];
+        HasTeleportSpell = AttackBools[5];
     }
 
     private void Awake()
@@ -164,8 +189,51 @@ public class CharacterControls : MonoBehaviour
                 ProjectileDestination.hitPoint = hit.point;
             }
         }
+    }
 
-
+    void Support()
+    {
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Range))
+        {
+            if (HasSlimeBall)
+            {
+                GameObject Projectile = Instantiate(SlimePrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasIceBall)
+            {
+                GameObject Projectile = Instantiate(IcePrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasTeleportSpell)
+            {
+                GameObject Projectile = Instantiate(TeleportPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasHotFeet)
+            {
+                GameObject Projectile = Instantiate(BootsPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasBubbleBall)
+            {
+                GameObject Projectile = Instantiate(BubblePrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+            else if (HasFlashStar)
+            {
+                GameObject Projectile = Instantiate(FlashStarPrefab, FirePoint.position, Quaternion.identity);
+                ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
+                ProjectileDestination.hitPoint = hit.point;
+            }
+        }
     }
 
     void Jump()

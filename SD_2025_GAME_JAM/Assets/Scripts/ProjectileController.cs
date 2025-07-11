@@ -10,4 +10,12 @@ public class ProjectileController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, hitPoint,MoveSpeed *  Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

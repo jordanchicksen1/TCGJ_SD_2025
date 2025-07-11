@@ -16,7 +16,7 @@ public class EffectManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0);
         characterController.gravity = characterController.gravity * -1; 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         characterController.gravity = characterController.gravity * -1;
 
     }
@@ -46,11 +46,10 @@ public class EffectManager : MonoBehaviour
 
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider hit)
     {
-        if (hit.collider.CompareTag("Flame"))
+        if (hit.CompareTag("Flame"))
         {
-            Destroy(hit.collider.gameObject);
             StartCoroutine(Graviole());
         }
     }

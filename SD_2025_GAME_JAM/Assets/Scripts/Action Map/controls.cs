@@ -71,6 +71,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Support"",
+                    ""type"": ""Button"",
+                    ""id"": ""afe4a735-6a4c-4ed8-a201-540995e70476"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60eeffd9-c8a9-4f0d-8b64-b618ee3480b0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Support"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -187,6 +207,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Support"",
+                    ""type"": ""Button"",
+                    ""id"": ""4144048a-3c48-4b5d-99ac-d93b071dfd1e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Look Around"",
@@ -280,6 +309,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42b787ad-9172-41bf-b787-0ae50361c3d3"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Support"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,9 +356,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Support = m_Player.FindAction("Support", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
+        m_Player2_Support = m_Player2.FindAction("Support", throwIfNotFound: true);
         m_Player2_LookAround = m_Player2.FindAction("Look Around", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Interact = m_Player2.FindAction("Interact", throwIfNotFound: true);
@@ -389,6 +431,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Support;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -398,6 +441,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Support => m_Wrapper.m_Player_Support;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -422,6 +466,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Support.started += instance.OnSupport;
+            @Support.performed += instance.OnSupport;
+            @Support.canceled += instance.OnSupport;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -441,6 +488,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Support.started -= instance.OnSupport;
+            @Support.performed -= instance.OnSupport;
+            @Support.canceled -= instance.OnSupport;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -463,6 +513,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
     private readonly InputAction m_Player2_Movement;
+    private readonly InputAction m_Player2_Support;
     private readonly InputAction m_Player2_LookAround;
     private readonly InputAction m_Player2_Jump;
     private readonly InputAction m_Player2_Interact;
@@ -472,6 +523,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         private @Controls m_Wrapper;
         public Player2Actions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
+        public InputAction @Support => m_Wrapper.m_Player2_Support;
         public InputAction @LookAround => m_Wrapper.m_Player2_LookAround;
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
         public InputAction @Interact => m_Wrapper.m_Player2_Interact;
@@ -488,6 +540,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Support.started += instance.OnSupport;
+            @Support.performed += instance.OnSupport;
+            @Support.canceled += instance.OnSupport;
             @LookAround.started += instance.OnLookAround;
             @LookAround.performed += instance.OnLookAround;
             @LookAround.canceled += instance.OnLookAround;
@@ -507,6 +562,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Support.started -= instance.OnSupport;
+            @Support.performed -= instance.OnSupport;
+            @Support.canceled -= instance.OnSupport;
             @LookAround.started -= instance.OnLookAround;
             @LookAround.performed -= instance.OnLookAround;
             @LookAround.canceled -= instance.OnLookAround;
@@ -561,10 +619,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSupport(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSupport(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);

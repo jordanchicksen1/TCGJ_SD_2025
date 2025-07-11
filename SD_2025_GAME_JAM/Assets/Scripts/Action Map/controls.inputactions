@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Support",
+                    "type": "Button",
+                    "id": "afe4a735-6a4c-4ed8-a201-540995e70476",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -150,6 +159,17 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60eeffd9-c8a9-4f0d-8b64-b618ee3480b0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Support",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -165,6 +185,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Support",
+                    "type": "Button",
+                    "id": "4144048a-3c48-4b5d-99ac-d93b071dfd1e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look Around",
@@ -256,6 +285,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42b787ad-9172-41bf-b787-0ae50361c3d3",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Support",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
