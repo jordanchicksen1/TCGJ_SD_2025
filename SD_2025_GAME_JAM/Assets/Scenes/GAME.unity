@@ -2129,6 +2129,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Payer 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2181742867098239450, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181742867098239450, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918587343374532815, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      propertyPath: m_Name
+      value: Cross Hair
+      objectReference: {fileID: 0}
     - target: {fileID: 6065874385186068048, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2184,6 +2199,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7252020419162553274, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 3bb3a3996dee03a4fa685ab0cd903cfb, type: 3}
     - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
       propertyPath: FirePoint
@@ -4862,6 +4882,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1492274082895958707, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      propertyPath: m_Name
+      value: CrossHair
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697145789400536116, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697145789400536116, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 2945199811495940471, guid: 7e95c8cc2e73ac8448dd034417270b62,
         type: 3}
       propertyPath: FirePoint
@@ -5004,6 +5039,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3635863387907704178, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 792dcb02319cc2345b41fcafb197ac36, type: 3}
     - target: {fileID: 6712476364433531481, guid: 7e95c8cc2e73ac8448dd034417270b62,
         type: 3}
       propertyPath: m_LocalPosition.x
