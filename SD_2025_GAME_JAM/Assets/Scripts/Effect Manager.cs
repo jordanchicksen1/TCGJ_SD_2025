@@ -10,6 +10,8 @@ public class EffectManager : MonoBehaviour
     [SerializeField] public GameObject freezePanle;
     [SerializeField] public GameObject flashPanle;
     [SerializeField] public GameObject slimePanle;
+    [SerializeField] public GameObject burnPanle;
+    [SerializeField] public GameObject burnParticle;
     public GameObject Bubble;
 
     private void Start()
@@ -100,6 +102,8 @@ public class EffectManager : MonoBehaviour
     public void Burn()
     {
         StartCoroutine(TakeDamage());
+        burnPanle.SetActive(true);
+        burnParticle.SetActive(true);
     }
 
     IEnumerator TakeDamage()
@@ -110,6 +114,8 @@ public class EffectManager : MonoBehaviour
             RespawnManager HealthScript = GetComponent<RespawnManager>();
             HealthScript.HP -= 10;
         }
+        burnPanle.SetActive(false);
+        burnParticle.SetActive(false);
 
     }
     public void ShakeLevel()
