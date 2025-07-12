@@ -207,4 +207,9 @@ public class startScene : MonoBehaviour
         yield return new WaitForSeconds(5f);
         next8.SetActive(true);
     }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadScene("GAME");
+    }
 }
