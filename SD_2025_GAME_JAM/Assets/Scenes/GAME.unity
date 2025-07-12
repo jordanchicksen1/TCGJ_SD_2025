@@ -2808,6 +2808,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.372654, y: 1.3209057, z: 3.5394146}
   m_Center: {x: -0.013727188, y: -0.5670557, z: -0.061769366}
+--- !u!4 &282141215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6065874385186068048, guid: 384f1e3882bbfa94883f04c9eba87b45,
+    type: 3}
+  m_PrefabInstance: {fileID: 351604872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &285892420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3560,6 +3566,11 @@ PrefabInstance:
       objectReference: {fileID: 149178733}
     - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
+      propertyPath: RayPoint
+      value: 
+      objectReference: {fileID: 1382405066}
+    - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
       propertyPath: FirePoint
       value: 
       objectReference: {fileID: 25342735}
@@ -3641,6 +3652,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
+      propertyPath: CollectionParticles
+      value: 
+      objectReference: {fileID: 3266891221786075039, guid: cff2c4f15ac8c3c4b8a3bb7143aa4a1f,
+        type: 3}
+    - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
       propertyPath: CocktailMolotovePrefab
       value: 
       objectReference: {fileID: 5307139069202583747, guid: 88634d8509193fb47a43e962827e6372,
@@ -3649,6 +3666,10 @@ PrefabInstance:
     - {fileID: 666653511361454136, guid: 384f1e3882bbfa94883f04c9eba87b45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6065874385186068048, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1382405066}
     - targetCorrespondingSourceObject: {fileID: 2287530273754949934, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
       insertIndex: -1
@@ -3682,6 +3703,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224946900}
+    - targetCorrespondingSourceObject: {fileID: 45305459275454155, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224946905}
   m_SourcePrefab: {fileID: 100100000, guid: 384f1e3882bbfa94883f04c9eba87b45, type: 3}
 --- !u!1 &358246038 stripped
 GameObject:
@@ -7644,6 +7669,11 @@ PrefabInstance:
       objectReference: {fileID: 1613550867}
     - target: {fileID: 2945199811495940471, guid: 7e95c8cc2e73ac8448dd034417270b62,
         type: 3}
+      propertyPath: RayPoint
+      value: 
+      objectReference: {fileID: 2016913234}
+    - target: {fileID: 2945199811495940471, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
       propertyPath: FirePoint
       value: 
       objectReference: {fileID: 1274164069}
@@ -7735,6 +7765,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2945199811495940471, guid: 7e95c8cc2e73ac8448dd034417270b62,
         type: 3}
+      propertyPath: CollectionParticles
+      value: 
+      objectReference: {fileID: 3266891221786075039, guid: cff2c4f15ac8c3c4b8a3bb7143aa4a1f,
+        type: 3}
+    - target: {fileID: 2945199811495940471, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
       propertyPath: CocktailMolotovePrefab
       value: 
       objectReference: {fileID: 5307139069202583747, guid: 88634d8509193fb47a43e962827e6372,
@@ -7807,6 +7843,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6712476364433531481, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2016913234}
     - targetCorrespondingSourceObject: {fileID: 1942830640387095003, guid: 7e95c8cc2e73ac8448dd034417270b62,
         type: 3}
       insertIndex: -1
@@ -7840,6 +7880,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2114616227}
+    - targetCorrespondingSourceObject: {fileID: 7988842644018632901, guid: 7e95c8cc2e73ac8448dd034417270b62,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2114616232}
   m_SourcePrefab: {fileID: 100100000, guid: 7e95c8cc2e73ac8448dd034417270b62, type: 3}
 --- !u!1001 &837363074
 PrefabInstance:
@@ -10353,52 +10397,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1589401390}
   m_SourcePrefab: {fileID: 100100000, guid: a77975cf918fcd1438c39314ec4e6598, type: 3}
---- !u!1 &1125775956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125775958}
-  - component: {fileID: 1125775957}
-  m_Layer: 0
-  m_Name: Player Respawn Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1125775957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125775956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 101d94c2de72c2845be2174f4851987e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints: []
-  HP: 100
---- !u!4 &1125775958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125775956}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2779992, y: 29.109045, z: -11.881056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1127915563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6512510688612296998, guid: e7f67e4c08d792446b90dd38289c58c2,
@@ -11338,6 +11336,12 @@ Transform:
   - {fileID: 1160152643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1224524461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6712476364433531481, guid: 7e95c8cc2e73ac8448dd034417270b62,
+    type: 3}
+  m_PrefabInstance: {fileID: 833275261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1224946894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 45305459275454155, guid: 384f1e3882bbfa94883f04c9eba87b45,
@@ -11373,6 +11377,20 @@ MonoBehaviour:
   flashPanle: {fileID: 1803026701}
   slimePanle: {fileID: 223032736}
   Bubble: {fileID: 1088224410}
+--- !u!114 &1224946905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224946894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101d94c2de72c2845be2174f4851987e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints: []
+  HP: 100
 --- !u!1001 &1227257005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12813,6 +12831,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.7530544, y: 0.5147743, z: 2.1172364}
   m_Center: {x: 0.00000009934107, y: -0.0000031789143, z: 0.09117762}
+--- !u!1 &1382405065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382405066}
+  m_Layer: 0
+  m_Name: RayPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1382405066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382405065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 282141215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1383674330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d1c14419c43db4d4c97d5d7c2b053b7e,
@@ -20758,6 +20807,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1268632522816622962, guid: e7f67e4c08d792446b90dd38289c58c2, type: 3}
+--- !u!1 &2016913233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016913234}
+  m_Layer: 0
+  m_Name: RayPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016913234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016913233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1224524461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2020245834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22378,6 +22458,20 @@ MonoBehaviour:
   flashPanle: {fileID: 1806834801}
   slimePanle: {fileID: 2090578920}
   Bubble: {fileID: 1976841445}
+--- !u!114 &2114616232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114616225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101d94c2de72c2845be2174f4851987e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints: []
+  HP: 100
 --- !u!1 &2121230102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 150971634818786389, guid: e7f67e4c08d792446b90dd38289c58c2,
@@ -22941,4 +23035,3 @@ SceneRoots:
   - {fileID: 1779787082}
   - {fileID: 230441284}
   - {fileID: 1572969572}
-  - {fileID: 1125775958}

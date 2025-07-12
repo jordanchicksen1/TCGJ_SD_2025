@@ -56,7 +56,9 @@ public class CharacterControls : MonoBehaviour
     private Vector3 originalPos;
     public GameObject Cloud;
     public GameObject flamePanel;
+    public GameObject CollectionParticles;
 
+    public Transform RayPoint;
     private void OnEnable()
     {
         if (PlayerIndex == 1)
@@ -171,7 +173,7 @@ public class CharacterControls : MonoBehaviour
 
     void Attack()
     {
-        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        Ray ray = new Ray(RayPoint.position, playerCamera.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Range))
         {
@@ -216,7 +218,7 @@ public class CharacterControls : MonoBehaviour
 
     void Support()
     {
-        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        Ray ray = new Ray(RayPoint.position, playerCamera.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Range))
         {
@@ -265,7 +267,7 @@ public class CharacterControls : MonoBehaviour
     void Jump()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, 1))
+        if (Physics.Raycast(ray, out RaycastHit hit, 2))
         {
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }
@@ -326,6 +328,8 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[2] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
         }
         else if (other.CompareTag("Lightning"))
         {
@@ -334,6 +338,9 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[4] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
 
         }
         else if (other.CompareTag("MoonStick"))
@@ -343,6 +350,9 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[5] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
 
         }
         else if (other.CompareTag("BoxingGloves"))
@@ -352,6 +362,9 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[3] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
         else if (other.CompareTag("Bomb"))
         {
@@ -360,6 +373,9 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[0] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
         else if (other.CompareTag("CocktailMolotove"))
         {
@@ -368,6 +384,9 @@ public class CharacterControls : MonoBehaviour
                 AttackBools[i] = false;
             }
             AttackBools[1] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
 
 
@@ -379,6 +398,9 @@ public class CharacterControls : MonoBehaviour
                 SupportBools[i] = false;
             }
             SupportBools[1] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
         else if (other.CompareTag("Slime"))
         {
@@ -387,15 +409,11 @@ public class CharacterControls : MonoBehaviour
                 SupportBools[i] = false;
             }
             SupportBools[2] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
-        else if (other.CompareTag("Boots"))
-        {
-            for (int i = 0; i < SupportBools.Count; i++)
-            {
-                SupportBools[i] = false;
-            }
-            SupportBools[0] = true;
-        }
+        
         else if (other.CompareTag("FlashStar"))
         {
             for (int i = 0; i < SupportBools.Count; i++)
@@ -403,6 +421,9 @@ public class CharacterControls : MonoBehaviour
                 SupportBools[i] = false;
             }
             SupportBools[4] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
         else if (other.CompareTag("teleport"))
         {
@@ -411,6 +432,9 @@ public class CharacterControls : MonoBehaviour
                 SupportBools[i] = false;
             }
             SupportBools[5] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
         else if (other.CompareTag("Bubble"))
         {
@@ -419,6 +443,9 @@ public class CharacterControls : MonoBehaviour
                 SupportBools[i] = false;
             }
             SupportBools[3] = true;
+            GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
+            ParticleSystem.transform.rotation = transform.rotation;
+            Destroy(ParticleSystem, 2);
         }
 
     }
