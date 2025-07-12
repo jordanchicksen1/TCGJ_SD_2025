@@ -377,7 +377,7 @@ public class CharacterControls : MonoBehaviour
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
         }
-        else if (other.CompareTag("CocktailMolotove"))
+        else if (other.CompareTag("Molotove"))
         {
             for (int i = 0; i < AttackBools.Count; i++)
             {

@@ -9,6 +9,8 @@ public class ProjectileController : MonoBehaviour
     public int MoveSpeed;
     private Vector3 OriginalPosition;
     public bool IsSlimeBall, isIce, isFlashStar, isBubble, isHotFeet, isTeleport;
+
+    public bool isLightning, isFlame, isGlove, isMolotove, isMoon;
     public GameObject Player;
     public CharacterController characterController;
 
@@ -40,7 +42,8 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player01") || other.CompareTag("Player02"))
+        //Support Effects
+        if (other.CompareTag("Player01") || other.CompareTag("Player02"))
         {
             if (IsSlimeBall)
             {
@@ -62,7 +65,7 @@ public class ProjectileController : MonoBehaviour
             else if (isFlashStar)
             {
                 Player = other.gameObject;
-                EffectManager effectScript= Player.GetComponent<EffectManager>();
+                EffectManager effectScript = Player.GetComponent<EffectManager>();
                 effectScript.FlashBang();
 
             }
@@ -80,14 +83,46 @@ public class ProjectileController : MonoBehaviour
                 effectScript.HotFeet();
                 Destroy(gameObject);
             }
-            
 
+            //Attack Effects and Damage
+            else if (isFlame)
+            {
+                Player = other.gameObject;
+                RespawnManager PlayerHealth = Player.GetComponent<RespawnManager>();
+                PlayerHealth.HP -= 25;
+                Destroy(gameObject);
+            }
+            else if (isGlove)
+            {
+                Player = other.gameObject;
+                RespawnManager PlayerHealth = Player.GetComponent<RespawnManager>();
+                PlayerHealth.HP -= 50;
+                Destroy(gameObject);
+            }
+            else if (isLightning)
+            {
+                Player = other.gameObject;
+                RespawnManager PlayerHealth = Player.GetComponent<RespawnManager>();
+                PlayerHealth.HP -= 40;
+                Destroy(gameObject);
+            }
+            else if (isMolotove)
+            {
+                Player = other.gameObject;
+                EffectManager effectManager = Player.GetComponent<EffectManager>();
+                effectManager.Burn();
+                Destroy(gameObject);
+            }
+            else if (isMoon)
+            {
+                Player = other.gameObject;
+                RespawnManager PlayerHealth = Player.GetComponent<RespawnManager>();
+                PlayerHealth.HP -= 25;
+                Destroy(gameObject);
+            }
+        }
 
-        }
-        else  if (other != null)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     IEnumerator Pull()

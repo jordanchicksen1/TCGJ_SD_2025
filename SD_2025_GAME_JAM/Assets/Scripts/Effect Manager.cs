@@ -97,28 +97,21 @@ public class EffectManager : MonoBehaviour
         
     }
 
-
-    //Side Effects
-    public void SmokeScreen()
-    {
-
-    }
-
-    public void BlackCloud()
-    {
-
-    }
-
-    public void ScreenShake()
-    {
-
-    }
-
     public void Burn()
     {
-
+        StartCoroutine(TakeDamage());
     }
 
+    IEnumerator TakeDamage()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(3);
+            RespawnManager HealthScript = GetComponent<RespawnManager>();
+            HealthScript.HP -= 10;
+        }
+
+    }
     public void ShakeLevel()
     {
 

@@ -28,6 +28,7 @@ TagManager:
   - Stick
   - Load
   - teleport
+  - Punch
   layers:
   - Default
   - TransparentFX

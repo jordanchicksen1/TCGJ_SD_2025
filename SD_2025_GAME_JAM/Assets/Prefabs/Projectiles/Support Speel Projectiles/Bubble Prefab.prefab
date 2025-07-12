@@ -10,6 +10,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -115,6 +130,8 @@ MonoBehaviour:
   isIce: 0
   isFlashStar: 0
   isBubble: 1
+  isHotFeet: 0
+  isTeleport: 0
   Player: {fileID: 0}
   characterController: {fileID: 0}
 --- !u!135 &6628478288477136682

@@ -10,6 +10,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd1bc4b1d475ce448b8a738504a08bf0,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -116,6 +131,16 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0, z: 0}
   MoveSpeed: 60
   IsSlimeBall: 0
+  isIce: 0
+  isFlashStar: 0
+  isBubble: 0
+  isHotFeet: 0
+  isTeleport: 0
+  isLightning: 0
+  isFlame: 1
+  isGlove: 0
+  isMolotove: 0
+  isMoon: 0
   Player: {fileID: 0}
   characterController: {fileID: 0}
 --- !u!135 &5287111466344364474
