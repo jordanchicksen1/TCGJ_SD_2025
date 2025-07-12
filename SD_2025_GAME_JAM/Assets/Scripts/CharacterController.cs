@@ -150,12 +150,10 @@ public class CharacterControls : MonoBehaviour
         if (HasLightning)
         {
             Cloud.SetActive(true);
-            moveSpeed = 4;
         }
         else if (!HasLightning)
         {
             Cloud.SetActive(false);
-            moveSpeed = 8;
         }
         if(HasFireBall)
         {
@@ -335,6 +333,10 @@ public class CharacterControls : MonoBehaviour
     {
         if (other.CompareTag("FireBAll"))
         {
+            if (HasLightning)
+            {
+                moveSpeed += 4;
+            }
             for (int i = 0; i < AttackBools.Count; i++)
             {
                 AttackBools[i] = false;
@@ -342,6 +344,7 @@ public class CharacterControls : MonoBehaviour
             AttackBools[2] = true;
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
+            
         }
         else if (other.CompareTag("Lightning"))
         {
@@ -352,11 +355,16 @@ public class CharacterControls : MonoBehaviour
             AttackBools[4] = true;
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
+            moveSpeed -= 4;
             Destroy(ParticleSystem, 2);
 
         }
         else if (other.CompareTag("MoonStick"))
         {
+            if (HasLightning)
+            {
+                moveSpeed += 4;
+            }
             for (int i = 0; i < AttackBools.Count; i++)
             {
                 AttackBools[i] = false;
@@ -369,6 +377,10 @@ public class CharacterControls : MonoBehaviour
         }
         else if (other.CompareTag("BoxingGloves"))
         {
+            if (HasLightning)
+            {
+                moveSpeed += 4;
+            }
             for (int i = 0; i < AttackBools.Count; i++)
             {
                 AttackBools[i] = false;
@@ -380,6 +392,10 @@ public class CharacterControls : MonoBehaviour
         }
         else if (other.CompareTag("Bomb"))
         {
+            if (HasLightning)
+            {
+                moveSpeed += 4;
+            }
             for (int i = 0; i < AttackBools.Count; i++)
             {
                 AttackBools[i] = false;
@@ -391,6 +407,10 @@ public class CharacterControls : MonoBehaviour
         }
         else if (other.CompareTag("Molotove"))
         {
+            if (HasLightning)
+            {
+                moveSpeed += 4;
+            }
             for (int i = 0; i < AttackBools.Count; i++)
             {
                 AttackBools[i] = false;
