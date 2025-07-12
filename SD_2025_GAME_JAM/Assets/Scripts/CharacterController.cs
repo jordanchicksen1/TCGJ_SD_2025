@@ -51,6 +51,9 @@ public class CharacterControls : MonoBehaviour
     [SerializeField]
     private int PlayerIndex;
 
+
+    public List<GameObject> AttackUI;
+    public List<GameObject> SupportUI;
     //Effects
     public float shakeMagnitude = 0.3f;
     private Vector3 originalPos;
@@ -359,6 +362,12 @@ public class CharacterControls : MonoBehaviour
             AttackBools[2] = true;
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
+
+            foreach(GameObject g in AttackUI)
+            {
+                g.SetActive(false);
+                AttackUI[0].SetActive(true);
+            }
             
         }
         else if (other.CompareTag("Lightning"))
@@ -372,6 +381,12 @@ public class CharacterControls : MonoBehaviour
             ParticleSystem.transform.rotation = transform.rotation;
             moveSpeed -= 4;
             Destroy(ParticleSystem, 2);
+
+            foreach (GameObject g in AttackUI)
+            {
+                g.SetActive(false);
+                AttackUI[1].SetActive(true);
+            }
 
         }
         else if (other.CompareTag("MoonStick"))
@@ -388,7 +403,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
-
+            foreach (GameObject g in AttackUI)
+            {
+                g.SetActive(false);
+                AttackUI[3].SetActive(true);
+            }
         }
         else if (other.CompareTag("BoxingGloves"))
         {
@@ -404,6 +423,12 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+
+            foreach (GameObject g in AttackUI)
+            {
+                g.SetActive(false);
+                AttackUI[2].SetActive(true);
+            }
         }
         else if (other.CompareTag("Bomb"))
         {
@@ -434,6 +459,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in AttackUI)
+            {
+                g.SetActive(false);
+                AttackUI[4].SetActive(true);
+            }
         }
 
 
@@ -448,6 +478,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in SupportUI)
+            {
+                g.SetActive(false);
+                SupportUI[1].SetActive(true);
+            }
         }
         else if (other.CompareTag("Slime"))
         {
@@ -459,6 +494,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in SupportUI)
+            {
+                g.SetActive(false);
+                SupportUI[0].SetActive(true);
+            }
         }
         
         else if (other.CompareTag("FlashStar"))
@@ -471,6 +511,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in SupportUI)
+            {
+                g.SetActive(false);
+                SupportUI[4].SetActive(true);
+            }
         }
         else if (other.CompareTag("teleport"))
         {
@@ -482,6 +527,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in SupportUI)
+            {
+                g.SetActive(false);
+                SupportUI[3].SetActive(true);
+            }
         }
         else if (other.CompareTag("Bubble"))
         {
@@ -493,6 +543,11 @@ public class CharacterControls : MonoBehaviour
             GameObject ParticleSystem = Instantiate(CollectionParticles, transform.position, Quaternion.identity);
             ParticleSystem.transform.rotation = transform.rotation;
             Destroy(ParticleSystem, 2);
+            foreach (GameObject g in SupportUI)
+            {
+                g.SetActive(false);
+                SupportUI[2].SetActive(true);
+            }
         }
 
     }

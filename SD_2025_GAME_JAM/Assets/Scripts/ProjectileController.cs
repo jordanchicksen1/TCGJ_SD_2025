@@ -22,6 +22,8 @@ public class ProjectileController : MonoBehaviour
     {
         OriginalPosition = transform.position;
         AudioSource = GameObject.FindGameObjectWithTag("Sfx2");
+
+        Destroy(gameObject, 10);
     }
     private void Update()
     {
