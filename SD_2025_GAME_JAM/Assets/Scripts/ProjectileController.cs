@@ -14,9 +14,14 @@ public class ProjectileController : MonoBehaviour
     public GameObject Player;
     public CharacterController characterController;
 
+    public AudioSource sfx2;
+    public AudioClip playerHit;
+    GameObject AudioSource;
+
     private void Start()
     {
         OriginalPosition = transform.position;
+        AudioSource = GameObject.FindGameObjectWithTag("Sfx2");
     }
     private void Update()
     {
@@ -45,6 +50,8 @@ public class ProjectileController : MonoBehaviour
         //Support Effects
         if (other.CompareTag("Player01") || other.CompareTag("Player02"))
         {
+            sfx2 = AudioSource.GetComponent<AudioSource>();
+            sfx2.Play();
             if (IsSlimeBall)
             {
                 Player = other.gameObject;

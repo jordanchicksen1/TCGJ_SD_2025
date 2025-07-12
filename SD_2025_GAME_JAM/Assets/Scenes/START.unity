@@ -3970,7 +3970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0999756, y: 265}
+  m_AnchoredPosition: {x: 1.0999756, y: 149}
   m_SizeDelta: {x: 1337.4365, y: 129.6661}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782742347
@@ -3993,8 +3993,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explore the tower to find attack and support spells. However, be very wary,
-    as they may have some strange side effects!
+  m_text: 'Explore the tower to find attack and support spells. However, be very
+    wary, as they may have some strange side effects!
+
+
+
+
+    Attack Spell                    
+    Support Spell'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1f6e0c08d122174eb3c2a832e03cf91, type: 2}
   m_sharedMaterial: {fileID: -77228194518535435, guid: c1f6e0c08d122174eb3c2a832e03cf91,

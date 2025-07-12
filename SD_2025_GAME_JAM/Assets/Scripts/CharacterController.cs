@@ -59,6 +59,10 @@ public class CharacterControls : MonoBehaviour
     public GameObject CollectionParticles;
 
     public Transform RayPoint;
+
+    public AudioSource SFX;
+    public AudioClip spellSFX;
+
     private void OnEnable()
     {
         if (PlayerIndex == 1)
@@ -187,6 +191,8 @@ public class CharacterControls : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Range))
         {
+            SFX.clip = spellSFX;
+            SFX.Play();
             if (HasFireBall)
             {
                 GameObject Projectile = Instantiate(FireBallPrefab, FirePoint.position, Quaternion.identity);
@@ -232,17 +238,22 @@ public class CharacterControls : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Range))
         {
+            SFX.clip = spellSFX;
+            SFX.Play();
+
             if (HasSlimeBall)
             {
                 GameObject Projectile = Instantiate(SlimePrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+                
             }
             else if (HasIceBall)
             {
                 GameObject Projectile = Instantiate(IcePrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+               
             }
             else if (HasTeleportSpell)
             {
@@ -250,6 +261,7 @@ public class CharacterControls : MonoBehaviour
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
                 ProjectileDestination.Player = gameObject;
+           
 
             }
             else if (HasHotFeet)
@@ -257,18 +269,21 @@ public class CharacterControls : MonoBehaviour
                 GameObject Projectile = Instantiate(BootsPrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+            
             }
             else if (HasBubbleBall)
             {
                 GameObject Projectile = Instantiate(BubblePrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+              
             }
             else if (HasFlashStar)
             {
                 GameObject Projectile = Instantiate(FlashStarPrefab, FirePoint.position, Quaternion.identity);
                 ProjectileController ProjectileDestination = Projectile.GetComponent<ProjectileController>();
                 ProjectileDestination.hitPoint = hit.point;
+                
             }
             
         }

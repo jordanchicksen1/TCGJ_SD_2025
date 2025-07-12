@@ -29,6 +29,7 @@ TagManager:
   - Load
   - teleport
   - Punch
+  - Sfx2
   layers:
   - Default
   - TransparentFX
