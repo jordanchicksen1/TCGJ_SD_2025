@@ -8030,6 +8030,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
         type: 3}
+      propertyPath: lookSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356026622058210290, guid: 384f1e3882bbfa94883f04c9eba87b45,
+        type: 3}
       propertyPath: moveSpeed
       value: 8
       objectReference: {fileID: 0}
