@@ -13,12 +13,18 @@ public class EffectManager : MonoBehaviour
     [SerializeField] public GameObject burnPanle;
     [SerializeField] public GameObject burnParticle;
     public GameObject Bubble;
+    public bool canFloat;
+    private bool isRunning;
 
     private void Start()
     {
         characterController = GetComponent<CharacterControls>();
     }
 
+    private void Update()
+    {
+        MoonFloat();
+    }
     public void Float()
     {
         StartCoroutine(Graviole());
@@ -47,8 +53,17 @@ public class EffectManager : MonoBehaviour
         freezePanle.SetActive(false);
 
     }
-    public void Teleport()
+    public void Heavy()
     {
+        StartCoroutine(HeavyMovement());
+    }
+
+    IEnumerator HeavyMovement()
+    {
+        CharacterControls characterScript = GetComponent<CharacterControls>();
+        characterScript.moveSpeed -= 4;
+        yield return new WaitForSeconds(5);
+        characterScript.moveSpeed += 4;
 
     }
 
@@ -120,6 +135,30 @@ public class EffectManager : MonoBehaviour
     }
     public void ShakeLevel()
     {
+
+    }
+
+    public void MoonFloat()
+    {
+       if(!isRunning)
+        {
+            StartCoroutine(moonFloat());
+        }
+    }
+    IEnumerator moonFloat()
+    {
+        if (canFloat)
+        {
+            Debug.Log("e");
+            isRunning = true;
+            characterController = GetComponent<CharacterControls>();
+            yield return new WaitForSeconds(Random.Range(3, 5));
+            characterController.gravity = characterController.gravity * -1;
+            yield return new WaitForSeconds(Random.Range(1, 3));
+            characterController.gravity = characterController.gravity * -1;
+            isRunning = false;
+        }
+
 
     }
 }

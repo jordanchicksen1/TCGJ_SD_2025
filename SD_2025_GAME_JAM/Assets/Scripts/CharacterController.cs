@@ -150,10 +150,12 @@ public class CharacterControls : MonoBehaviour
         if (HasLightning)
         {
             Cloud.SetActive(true);
+            moveSpeed = 4;
         }
         else if (!HasLightning)
         {
             Cloud.SetActive(false);
+            moveSpeed = 8;
         }
         if(HasFireBall)
         {
@@ -164,6 +166,16 @@ public class CharacterControls : MonoBehaviour
             flamePanel.SetActive(false);
         }
 
+        if (HasMoonStick)
+        {
+            EffectManager effectScript = GetComponent<EffectManager>();
+            effectScript.canFloat = true;
+        }
+        else if (!HasMoonStick)
+        {
+            EffectManager effectScript = GetComponent<EffectManager>();
+            effectScript.canFloat = false;
+        }
     }
 
     private void Awake()

@@ -118,6 +118,8 @@ public class ProjectileController : MonoBehaviour
                 Player = other.gameObject;
                 RespawnManager PlayerHealth = Player.GetComponent<RespawnManager>();
                 PlayerHealth.HP -= 25;
+                EffectManager effectsScript = Player.GetComponent<EffectManager>();
+                effectsScript.Heavy();
                 Destroy(gameObject);
             }
         }
